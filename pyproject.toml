@@ -7,3 +7,7 @@ requires-python = ">=3.8"
 license = { text = "MIT" }
 authors = [{ name = "cct2432" }]
 dependencies = []
+
+[project.scripts]
+to-cis = "Cistercian.cli:to_cis_cli"
+from-cis = "Cistercian.cli:from_cis_cli"
