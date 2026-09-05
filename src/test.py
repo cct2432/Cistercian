@@ -1,4 +1,5 @@
 import unittest
+from .converter import to_cis, from_cis
 
 class TestCistercianNumerals(unittest.TestCase):
     
