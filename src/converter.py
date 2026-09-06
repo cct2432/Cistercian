@@ -58,7 +58,7 @@ def from_cis(svg_string: str) -> int:
         frozenset({((0, 25), (30, 25))}): 2,
         frozenset({((0, 0), (30, 25))}): 3,
         frozenset({((0, 25), (30, 0))}): 4,
-        frozenset({((0, 0), (30, 0)), ((0, 25), (30, 0))}): 5, # Matches your (30, 0)
+        frozenset({((0, 0), (30, 0)), ((0, 25), (30, 0))}): 5,
         frozenset({((30, 0), (30, 25))}): 6,
         frozenset({((0, 0), (30, 0)), ((30, 0), (30, 25))}): 7,
         frozenset({((0, 25), (30, 25)), ((30, 0), (30, 25))}): 8,
@@ -78,17 +78,18 @@ def from_cis(svg_string: str) -> int:
             continue
         
         # Find Quadrant
-        if max(y1, y2) > 50 and min(x1, x2) < 50:
+        if max(y1, y2) > 50 and min(x1, x2) < 50: # Thousands
             ox, oy, sx, sy, place = 50, 90, -1, -1, 1000
-        elif max(y1, y2) > 50 and max(x1, x2) > 50:
+        elif max(y1, y2) > 50 and max(x1, x2) > 50: # Hundreds
             ox, oy, sx, sy, place = 50, 90, 1, -1, 100
-        elif min(y1, y2) < 50 and min(x1, x2) < 50:
+        elif min(y1, y2) < 50 and min(x1, x2) < 50: # Tens
             ox, oy, sx, sy, place = 50, 10, -1, 1, 10
-        elif min(y1, y2) < 50 and max(x1, x2) > 50:
+        elif min(y1, y2) < 50 and max(x1, x2) > 50: # Ones
             ox, oy, sx, sy, place = 50, 10, 1, 1, 1
         else:
             continue
 
+        # Find Relative Strokes
         local_x1, local_y1 = (x1 - ox) // sx, (y1 - oy) // sy
         local_x2, local_y2 = (x2 - ox) // sx, (y2 - oy) // sy
 
