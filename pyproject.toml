@@ -1,13 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "cistercian"
 version = "0.1.0"
-description = "Converts 4-digit integers into Cistercian numeral SVG glyphs"
+description = "A small Python package for generating Cistercian Numeral SVGs"
 readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }
 authors = [{ name = "cct2432" }]
-dependencies = []
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/cct2432/Cistercian"
 
 [project.scripts]
-to-cis = "Cistercian.cli:to_cis_cli"
-from-cis = "Cistercian.cli:from_cis_cli"
+cistercian = "src.cli:main"
