@@ -21,3 +21,6 @@ Homepage = "https://github.com/cct2432/Cistercian"
 
 [project.scripts]
 cistercian = "src.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
